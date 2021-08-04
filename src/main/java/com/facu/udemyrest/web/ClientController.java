@@ -16,7 +16,12 @@ public class ClientController {
     private ClientService service;
 
     @GetMapping("/all")
-    public List<Client> index() {
-        return service.findAll();
+    public List<Client> getAll() {
+        return this.service.findAll();
+    }
+
+    @GetMapping("/sup")
+    public List<Client> getBySuffix() {
+        return this.service.findAllBySuffix();
     }
 }

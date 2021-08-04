@@ -16,6 +16,11 @@ public class ClientService {
 
     @Transactional(readOnly = true)
     public List<Client> findAll() {
-        return (List<Client>) repository.findAll();
+        return (List<Client>) this.repository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Client> findAllBySuffix() {
+        return (List<Client>) this.repository.findAllBySuffix();
     }
 }
