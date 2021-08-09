@@ -20,7 +20,7 @@ public class ClientService {
     }
 
     @Transactional(readOnly = true)
-    public List<Client> findAllBySuffix() {
-        return (List<Client>) this.repository.findAllBySuffix();
+    public List<Client> findAllBySuffix(String razonSocialSuffix) {
+        return (List<Client>) this.repository.findByRazonSocialContaining(razonSocialSuffix);
     }
 }

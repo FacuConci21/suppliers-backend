@@ -21,7 +21,7 @@ public class ClientController {
     }
 
     @GetMapping("/sup")
-    public List<Client> getBySuffix() {
-        return this.service.findAllBySuffix();
+    public List<Client> getByRazonSocialContains(@RequestParam("razonSocialSuffix") String razonSocialSuffix ) {
+        return this.service.findAllBySuffix(razonSocialSuffix);
     }
 }
