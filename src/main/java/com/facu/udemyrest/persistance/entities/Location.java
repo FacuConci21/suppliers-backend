@@ -14,4 +14,19 @@ public class Location {
     @Column(name = "nombre")
     private String name;
 
+    public Long getIdLocalidad() {
+        return idLocalidad;
+    }
+
+    public void setIdLocalidad(Long idLocalidad) {
+        this.idLocalidad = idLocalidad;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

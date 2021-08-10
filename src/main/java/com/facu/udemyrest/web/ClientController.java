@@ -20,8 +20,4 @@ public class ClientController {
         return this.service.findAll();
     }
 
-    @GetMapping("/sup")
-    public List<Client> getByRazonSocialContains(@RequestParam("razonSocialSuffix") String razonSocialSuffix ) {
-        return this.service.findAllBySuffix(razonSocialSuffix);
-    }
 }

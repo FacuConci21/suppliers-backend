@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -20,7 +21,15 @@ public class ClientService {
     }
 
     @Transactional(readOnly = true)
-    public List<Client> findAllBySuffix(String razonSocialSuffix) {
-        return (List<Client>) this.repository.findByRazonSocialContaining(razonSocialSuffix);
+    public Optional<Client> findById(Long idClient) {
+        return this.repository.findById(idClient);
+    }
+
+    public Client save(Client client) {
+        return this.repository.save(client);
+    }
+
+    public void delete(Long idClient) {
+        this.repository.deleteById(idClient);
     }
 }

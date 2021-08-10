@@ -15,4 +15,19 @@ public class Neighborhood {
     @Column(name = "nombre")
     private String name;
 
+    public Long getIdBarrio() {
+        return idBarrio;
+    }
+
+    public void setIdBarrio(Long idBarrio) {
+        this.idBarrio = idBarrio;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
