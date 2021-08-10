@@ -1,6 +1,6 @@
 package com.facu.udemyrest.domain.service;
 
-import com.facu.udemyrest.irest.RestService;
+import com.facu.udemyrest.irest.ApiService;
 import com.facu.udemyrest.persistance.crud.ClientRepository;
 import com.facu.udemyrest.persistance.entities.Client;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ClientService implements RestService<Client, Long> {
+public class ClientService implements ApiService<Client, Long> {
 
     @Autowired()
     private ClientRepository repository;
