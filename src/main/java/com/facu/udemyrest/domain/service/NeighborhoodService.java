@@ -21,7 +21,7 @@ public class NeighborhoodService implements ApiService<Neighborhood, Long> {
 
     @Override
     public Optional<Neighborhood> findById(Long aLong) {
-        return Optional.empty();
+        return null;
     }
 
     @Override

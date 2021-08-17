@@ -21,7 +21,7 @@ public class LocationService implements ApiService<Location, Long> {
 
     @Override
     public Optional<Location> findById(Long aLong) {
-        return Optional.empty();
+        return null;
     }
 
     @Override

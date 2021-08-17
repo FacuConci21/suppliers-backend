@@ -5,7 +5,6 @@ import com.facu.udemyrest.persistance.crud.ClientRepository;
 import com.facu.udemyrest.persistance.entities.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,12 +15,10 @@ public class ClientService implements ApiService<Client, Long> {
     @Autowired()
     private ClientRepository repository;
 
-    @Transactional(readOnly = true)
     public List<Client> findAll() {
         return (List<Client>) this.repository.findAll();
     }
 
-    @Transactional(readOnly = true)
     public Optional<Client> findById(Long idClient) {
         return this.repository.findById(idClient);
     }
