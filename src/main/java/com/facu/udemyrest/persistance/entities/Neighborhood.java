@@ -1,6 +1,5 @@
 package com.facu.udemyrest.persistance.entities;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +13,10 @@ public class Neighborhood {
 
     @Column(name = "nombre")
     private String name;
+
+    @JoinColumn(name = "id_localidad")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    private Location location;
 
     public Long getIdBarrio() {
         return idBarrio;
@@ -29,5 +32,13 @@ public class Neighborhood {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }
