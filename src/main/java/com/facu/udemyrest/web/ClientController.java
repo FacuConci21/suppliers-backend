@@ -10,7 +10,8 @@ import com.facu.udemyrest.irest.ApiController;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = { "http://localhost:4200/"}, methods = RequestMethod.GET)
+@CrossOrigin(origins = { "http://localhost:4200/"},
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
 @RestController
 @RequestMapping("/api/client")
 public class ClientController implements ApiController<Client, Long> {
@@ -34,8 +35,8 @@ public class ClientController implements ApiController<Client, Long> {
         return this.service.save(client);
     }
 
-    @DeleteMapping("/delete")
-    public void delete(Long idClient) {
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable("id") Long idClient) {
         this.service.delete(idClient);
     }
 
