@@ -61,7 +61,7 @@ public class BranchOfficeController implements ApiController<BranchOffice, Long>
         try {
             newBranchOffice = this.service.save(branchOffice);
         } catch (DataAccessException e) {
-            result.put("message", "Error while getting Branch Office by id");
+            result.put("message", "Error while posting Branch Office");
             result.put("error", e.getMessage());
             result.put("cause", e.getMostSpecificCause().getMessage());
 
