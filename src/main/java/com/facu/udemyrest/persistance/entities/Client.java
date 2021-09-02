@@ -2,7 +2,7 @@ package com.facu.udemyrest.persistance.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity @Table(name = "clientes")
 public class Client implements Serializable {
@@ -15,11 +15,15 @@ public class Client implements Serializable {
     private String razonSocial;
 
     @Column(name = "fecha_activ", nullable = true, length = 100)
-    private String fechaActiv;
+    private Date fechaActiv;
 
     @JoinColumn(name = "id_barrio")
     @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Neighborhood neighborhood;
+
+    @JoinColumn(name = "tipo_cta")
+    @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private AccountType accountType;
 
     public Long getIdCli() {
         return this.idCli;
@@ -37,11 +41,11 @@ public class Client implements Serializable {
         this.razonSocial = razonSocial;
     }
 
-    public String getFechaActiv() {
-        return this.fechaActiv;
+    public Date getFechaActiv() {
+        return fechaActiv;
     }
 
-    public void setFechaActiv(String fechaActiv) {
+    public void setFechaActiv(Date fechaActiv) {
         this.fechaActiv = fechaActiv;
     }
 
@@ -51,5 +55,13 @@ public class Client implements Serializable {
 
     public void setNeighborhood(Neighborhood neighborhood) {
         this.neighborhood = neighborhood;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
     }
 }
