@@ -15,7 +15,7 @@ public class Location {
     private String name;
 
     public Long getIdLocalidad() {
-        return idLocalidad;
+        return this.idLocalidad;
     }
 
     public void setIdLocalidad(Long idLocalidad) {
@@ -23,10 +23,11 @@ public class Location {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
+
 }

@@ -17,6 +17,10 @@ public class Client implements Serializable {
     @Column(name = "fecha_activ", nullable = true, length = 100)
     private String fechaActiv;
 
+    @JoinColumn(name = "id_barrio")
+    @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Neighborhood neighborhood;
+
     public Long getIdCli() {
         return this.idCli;
     }
@@ -39,5 +43,13 @@ public class Client implements Serializable {
 
     public void setFechaActiv(String fechaActiv) {
         this.fechaActiv = fechaActiv;
+    }
+
+    public Neighborhood getNeighborhood() {
+        return this.neighborhood;
+    }
+
+    public void setNeighborhood(Neighborhood neighborhood) {
+        this.neighborhood = neighborhood;
     }
 }
