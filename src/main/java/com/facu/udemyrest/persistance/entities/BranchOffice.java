@@ -14,6 +14,10 @@ public class BranchOffice implements Serializable {
     
     @Column(name = "nombre")
     private String name;
+    
+    @JoinColumn(name = "id_barrio")
+    @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Neighborhood neighborhood;
 
     public Long getIdSuc() {
         return idSuc;
@@ -29,5 +33,13 @@ public class BranchOffice implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Neighborhood getNeighborhood() {
+        return neighborhood;
+    }
+
+    public void setNeighborhood(Neighborhood neighborhood) {
+        this.neighborhood = neighborhood;
     }
 }
