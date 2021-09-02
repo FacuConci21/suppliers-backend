@@ -50,7 +50,6 @@ public class ClientController implements ApiController<Client, Long> {
     }
 
     @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> post(@RequestBody Client client) {
         Client newClient = null;
         Map<String, Object> response = new HashMap();
@@ -70,8 +69,20 @@ public class ClientController implements ApiController<Client, Long> {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable("id") Long idClient) {
-        this.service.delete(idClient);
+    public ResponseEntity<?> delete(@PathVariable("id") Long idClient) {
+        Map<String, Object> response = new HashMap();
+
+        try {
+            this.service.delete(idClient);
+        } catch (DataAccessException e) {
+            response.put("message", "Produced while deleting Client record");
+            response.put("error", e.getMessage());
+            response.put("cause", e.getMostSpecificCause().getMessage());
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        response.put("message", "Client deleted successful");
+        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
 
 }

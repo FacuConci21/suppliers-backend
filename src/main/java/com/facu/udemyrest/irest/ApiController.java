@@ -19,6 +19,6 @@ public interface ApiController<T, ID> {
     ResponseEntity<?> post(T t);
 
     @DeleteMapping()
-    void delete(ID id);
+    ResponseEntity<?> delete(ID id);
 
 }

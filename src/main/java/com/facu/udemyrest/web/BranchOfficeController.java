@@ -75,7 +75,19 @@ public class BranchOfficeController implements ApiController<BranchOffice, Long>
 
     @Override
     @DeleteMapping("/delete/{id}")
-    public void delete(Long id) {
-        this.service.delete(id);
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
+        Map<String, Object> result = new HashMap();
+
+        try {
+            this.service.delete(id);
+        } catch (DataAccessException e) {
+            result.put("message", "Produced while deleting Branch Office record");
+            result.put("error", e.getMessage());
+            result.put("cause", e.getMostSpecificCause().getMessage());
+            return new ResponseEntity<Map<String, Object>>(result, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        result.put("message", "Branch Office deleted successful");
+        return new ResponseEntity<Map<String, Object>>(result, HttpStatus.OK);
     }
 }
