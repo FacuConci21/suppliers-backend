@@ -1,20 +1,23 @@
 package com.facu.udemyrest.persistance.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
-@Entity @Table(name = "clientes")
+@Entity @Table(name = "Clientes")
 public class Client implements Serializable {
 
     @Id @Column(name = "id_cli")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCli;
 
-    @Column(name = "razon_social", nullable = true, length = 100)
+    @Column(name = "razon_social", nullable = false, unique = true, length = 100)
     private String razonSocial;
 
-    @Column(name = "fecha_activ", nullable = true, length = 100)
+    @Column(name = "fecha_activ", nullable = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date fechaActiv;
 
     @JoinColumn(name = "id_barrio")
