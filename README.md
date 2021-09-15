@@ -2,8 +2,9 @@
 
 ## Descripcion
 
-REST API con una base de datos local MySQL. Se hace uso de [esta base de datos](https://github.com/FacuConci21/my-sql),
-creada y conservada anteriormente.
+REST API con una base de datos MySQL. Se hace uso de [este esquema](https://github.com/FacuConci21/my-sql) de base de datos,
+creada y conservada anteriormente. Hosteada de manera gratuita en [Crever Cloud](https://www.clever-cloud.com/en/). El sevicio
+es consumido por el cliente desarrollado en Angular: [Suppliers Client](https://github.com/FacuConci21/suppliers-client)
 
 ## Muestra
 
